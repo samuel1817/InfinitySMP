@@ -1,895 +1,234 @@
-/* =========================
-   RESET
-========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #080d0a;
-    color: white;
-}
-
-
-/* =========================
-   NAVBAR
-========================= */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 75px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 6%;
-
-    background: rgba(5, 10, 7, 0.75);
-    backdrop-filter: blur(12px);
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.navbar nav {
-    display: flex;
-    gap: 35px;
-}
-
-.navbar a {
-    color: #ddd;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.navbar a:hover {
-    color: #7cff6b;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 100vh;
-
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            rgba(0,0,0,0.35),
-            rgba(0,0,0,0.85)
-        ),
-        url("https://www.minecraft.net/content/dam/minecraftnet/article-asset/2026/minecraft-26-3-release-candidate-2/new-article-hero-image.jpg");
-
-    background-size: cover;
-    background-position: center;
-}
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at center,
-            transparent 20%,
-            rgba(0,0,0,0.7) 100%
-        );
-
-    pointer-events: none;
-}
-
-.hero-content {
-    position: relative;
-
-    z-index: 2;
-
-    max-width: 900px;
-
-    padding: 30px;
-}
-
-.small-title {
-    color: #8cff75;
-
-    font-size: 13px;
-    font-weight: 700;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-size: clamp(70px, 12vw, 150px);
-
-    line-height: 0.85;
-
-    font-weight: 1000;
-
-    letter-spacing: -6px;
-
-    text-shadow:
-        0 5px 0 #111,
-        0 10px 30px rgba(0,0,0,0.8);
-}
-
-.hero h1 span {
-    color: #7cff6b;
-}
-
-.description {
-    margin-top: 35px;
-
-    font-size: 18px;
-
-    color: #ddd;
-}
-
-
-/* =========================
-   HERO BUTTON
-========================= */
-
-.hero-button {
-    display: inline-flex;
-
-    align-items: center;
-    gap: 20px;
-
-    margin-top: 40px;
-
-    padding: 18px 30px;
-
-    background: #73d95d;
-
-    color: #071006;
-
-    text-decoration: none;
-
-    font-weight: 900;
-
-    border-radius: 6px;
-
-    box-shadow:
-        0 10px 40px rgba(90,255,70,0.25);
-
-    transition: 0.3s;
-}
-
-.hero-button:hover {
-    transform: translateY(-4px);
-
-    background: #8cff75;
-
-    box-shadow:
-        0 15px 50px rgba(90,255,70,0.4);
-}
-
-
-/* =========================
-   SCROLL INDICATOR
-========================= */
-
-.scroll-indicator {
-    position: absolute;
-
-    bottom: 30px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    z-index: 3;
-
-    font-size: 11px;
-
-    letter-spacing: 3px;
-
-    color: #aaa;
-}
-
-.scroll-indicator span {
-    display: block;
-
-    margin-top: 8px;
-
-    font-size: 20px;
-
-    animation: scrollArrow 1.5s infinite;
-}
-
-@keyframes scrollArrow {
-
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(8px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-
-}
-
-
-/* =========================
-   TOOLS SECTION
-========================= */
-
-.tools-section {
-    padding: 130px 7%;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #142417,
-            #080d0a 60%
-        );
-}
-
-.section-title {
-    text-align: center;
-
-    margin-bottom: 70px;
-}
-
-.section-title p {
-    color: #7cff6b;
-
-    font-size: 12px;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 15px;
-}
-
-.section-title h2 {
-    font-size: clamp(35px, 5vw, 65px);
-
-    letter-spacing: -2px;
-}
-
-
-/* =========================
-   TOOL CARDS
-========================= */
-
-.tools-grid {
-    max-width: 1200px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 25px;
-}
-
-.tool-card {
-    position: relative;
-
-    padding: 40px;
-
-    min-height: 350px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #162219,
-            #0d130f
-        );
-
-    border: 1px solid rgba(124,255,107,0.12);
-
-    border-radius: 14px;
-
-    transition: 0.35s;
-
-    overflow: hidden;
-}
-
-.tool-card::before {
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    right: -80px;
-    top: -80px;
-
-    background: #72ff5e;
-
-    filter: blur(100px);
-
-    opacity: 0.08;
-
-    pointer-events: none;
-}
-
-.tool-card:hover {
-    transform: translateY(-10px);
-
-    border-color:
-        rgba(124,255,107,0.4);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.4);
-}
-
-.tool-icon {
-    font-size: 55px;
-
-    margin-bottom: 30px;
-}
-
-.tool-card h3 {
-    font-size: 25px;
-
-    margin-bottom: 15px;
-}
-
-.tool-card p {
-    color: #9fa89f;
-
-    line-height: 1.7;
-
-    margin-bottom: 30px;
-}
-
-.tool-card button,
-.wiki-content button {
-    border: none;
-
-    background: transparent;
-
-    color: #7cff6b;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    letter-spacing: 1px;
-
-    transition: 0.3s;
-}
-
-.tool-card button:hover,
-.wiki-content button:hover {
-    color: white;
-
-    transform: translateX(5px);
-}
-
-
-/* =========================
-   CRAFTING CALCULATOR
-========================= */
-
-.hidden {
-    display: none !important;
-}
-
-.crafting-section {
-    min-height: 100vh;
-
-    padding: 130px 7%;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #18351d,
-            #080d0a 65%
-        );
-}
-
-.crafting-container {
-    max-width: 1100px;
-
-    margin: auto;
-}
-
-
-/* BACK BUTTON */
-
-.close-button {
-    border: 1px solid rgba(124,255,107,0.3);
-
-    background: rgba(0,0,0,0.3);
-
-    color: #7cff6b;
-
-    padding: 12px 20px;
-
-    border-radius: 6px;
-
-    cursor: pointer;
-
-    font-weight: 800;
-
-    margin-bottom: 50px;
-
-    transition: 0.3s;
-}
-
-.close-button:hover {
-    background: #7cff6b;
-
-    color: #071006;
-}
-
-
-/* CRAFTING TITLE */
-
-.crafting-container h2 {
-    font-size: clamp(50px, 8vw, 90px);
-
-    line-height: 0.9;
-
-    margin-bottom: 45px;
-}
-
-.crafting-container h2 span {
-    color: #7cff6b;
-}
-
-
-/* =========================
-   SEARCH
-========================= */
+/* ========================================
+   CRAFTING SEARCH RESULTS
+======================================== */
 
 .search-box {
-    margin-bottom: 40px;
+    position: relative;
 }
 
-.search-box input {
-    width: 100%;
+#searchResults {
+    display: none;
 
-    padding: 20px 25px;
+    position: absolute;
+
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+
+    z-index: 100;
 
     background: #101810;
 
-    border: 1px solid rgba(124,255,107,0.2);
+    border: 1px solid rgba(124,255,107,0.25);
 
     border-radius: 10px;
 
-    color: white;
-
-    font-size: 17px;
-
-    outline: none;
-
-    transition: 0.3s;
-}
-
-.search-box input::placeholder {
-    color: #687168;
-}
-
-.search-box input:focus {
-    border-color: #7cff6b;
+    overflow: hidden;
 
     box-shadow:
-        0 0 30px rgba(124,255,107,0.1);
+        0 20px 50px rgba(0,0,0,0.5);
 }
 
+.search-result {
+    width: 100%;
 
-/* =========================
-   CRAFTING RESULT
-========================= */
-
-.crafting-result {
-    padding: 40px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #172419,
-            #0b110d
-        );
-
-    border: 1px solid rgba(124,255,107,0.15);
-
-    border-radius: 15px;
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,0.3);
-}
-
-
-/* RECIPE TITLE */
-
-.recipe-title {
     display: flex;
 
     align-items: center;
 
-    gap: 20px;
-
-    margin-bottom: 50px;
-}
-
-.recipe-title > span {
-    font-size: 60px;
-}
-
-.recipe-title h3 {
-    font-size: 30px;
-
-    margin-bottom: 8px;
-}
-
-.recipe-title p {
-    color: #929c93;
-}
-
-
-/* =========================
-   RECIPE AREA
-========================= */
-
-.recipe-area {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 60px;
-
-    margin-bottom: 60px;
-}
-
-.recipe-label {
-    color: #7cff6b;
-
-    font-size: 11px;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 15px;
-}
-
-
-/* CRAFTING GRID */
-
-.crafting-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 75px);
-
-    grid-template-rows:
-        repeat(3, 75px);
-
-    gap: 4px;
-
-    background: #060806;
-
-    padding: 5px;
-
-    border: 3px solid #6c6c6c;
-
-    box-shadow:
-        inset 0 0 0 2px #222;
-}
-
-.crafting-grid div {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background:
-        linear-gradient(
-            145deg,
-            #3b403c,
-            #242824
-        );
-
-    font-size: 32px;
-
-    border: 2px solid #171917;
-
-    box-shadow:
-        inset 2px 2px rgba(255,255,255,0.08);
-
-    transition: 0.2s;
-}
-
-.crafting-grid div:hover {
-    background: #4a514a;
-
-    transform: scale(1.04);
-}
-
-
-/* ARROW */
-
-.recipe-arrow {
-    font-size: 45px;
-
-    color: #7cff6b;
-
-    text-shadow:
-        0 0 20px rgba(124,255,107,0.3);
-}
-
-
-/* OUTPUT */
-
-.output-item {
-    width: 100px;
-    height: 100px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background:
-        linear-gradient(
-            145deg,
-            #414741,
-            #242824
-        );
-
-    border: 3px solid #6c6c6c;
-
-    font-size: 50px;
-
-    margin-bottom: 10px;
-
-    box-shadow:
-        inset 2px 2px rgba(255,255,255,0.08);
-}
-
-.recipe-output strong {
-    color: #7cff6b;
-
-    font-size: 16px;
-}
-
-
-/* =========================
-   MATERIALS
-========================= */
-
-.materials {
-    border-top:
-        1px solid rgba(255,255,255,0.08);
-
-    padding-top: 30px;
-}
-
-.materials h3 {
-    margin-bottom: 20px;
-
-    font-size: 20px;
-}
-
-.material {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
+    gap: 15px;
 
     padding: 15px 20px;
 
-    margin-bottom: 8px;
+    border: none;
 
-    background: rgba(255,255,255,0.03);
+    border-bottom:
+        1px solid rgba(255,255,255,0.05);
 
-    border-radius: 6px;
+    background: transparent;
 
-    color: #ddd;
+    color: white;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
 
     transition: 0.2s;
 }
 
-.material:hover {
-    background: rgba(124,255,107,0.06);
-}
+.search-result:hover {
+    background:
+        rgba(124,255,107,0.1);
 
-.material strong {
     color: #7cff6b;
 }
 
+.search-result-icon {
+    font-size: 25px;
+}
 
-/* =========================
-   WIKI
-========================= */
+.no-results {
+    padding: 18px 20px;
 
-.wiki-section {
-    min-height: 650px;
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   OUTPUT
+======================================== */
+
+.output-item {
+    position: relative;
+
+    width: 110px;
+    height: 110px;
 
     display: flex;
 
     align-items: center;
+    justify-content: center;
 
-    padding: 100px 10%;
+    border-radius: 8px;
 
+    font-size: 52px;
+
+    border: 3px solid #666;
+
+    transition:
+        0.3s ease;
+
+    box-shadow:
+        inset 3px 3px rgba(255,255,255,0.12),
+        inset -4px -4px rgba(0,0,0,0.35);
+}
+
+
+/* STONE */
+
+.output-stone {
     background:
         linear-gradient(
-            90deg,
-            rgba(0,0,0,0.9),
-            rgba(0,0,0,0.35)
-        ),
-        url("https://cdn.shopify.com/s/files/1/0759/8099/6937/files/minecraft-Paysage-mountains_1024x1024.jpg?v=1771166065");
+            145deg,
+            #8b8f8b,
+            #444844
+        );
 
-    background-size: cover;
+    border-color: #aeb2ae;
 
-    background-position: center;
+    box-shadow:
+        0 0 20px rgba(150,150,150,0.15),
+        inset 3px 3px rgba(255,255,255,0.18);
 }
 
-.wiki-content {
-    max-width: 600px;
+
+/* IRON */
+
+.output-iron {
+    background:
+        linear-gradient(
+            145deg,
+            #d8dcda,
+            #727774
+        );
+
+    border-color: #f0f2f1;
+
+    box-shadow:
+        0 0 25px rgba(220,225,220,0.18),
+        inset 3px 3px rgba(255,255,255,0.3);
 }
 
-.wiki-content > p:first-child {
+
+/* DIAMOND */
+
+.output-diamond {
+    background:
+        linear-gradient(
+            145deg,
+            #79f7ff,
+            #168ca4
+        );
+
+    border-color: #a5ffff;
+
+    box-shadow:
+        0 0 35px rgba(60,230,255,0.4),
+        inset 3px 3px rgba(255,255,255,0.35);
+}
+
+
+/* NETHERITE */
+
+.output-netherite {
+    background:
+        linear-gradient(
+            145deg,
+            #65566b,
+            #211d24
+        );
+
+    border-color: #8c7894;
+
+    box-shadow:
+        0 0 30px rgba(150,100,170,0.25),
+        inset 3px 3px rgba(255,255,255,0.1);
+}
+
+
+/* WOOD */
+
+.output-wood {
+    background:
+        linear-gradient(
+            145deg,
+            #b87b3e,
+            #60391f
+        );
+
+    border-color: #d19a5e;
+
+    box-shadow:
+        0 0 20px rgba(180,110,50,0.2),
+        inset 3px 3px rgba(255,255,255,0.15);
+}
+
+
+/* EMPTY OUTPUT */
+
+.output-item:not([class*="output-"]) {
+    background:
+        linear-gradient(
+            145deg,
+            #242824,
+            #111411
+        );
+
+    border-color: #3c423c;
+
+    box-shadow:
+        inset 3px 3px rgba(255,255,255,0.04);
+}
+
+
+/* ========================================
+   OUTPUT NUMBER
+======================================== */
+
+.recipe-output strong {
+    display: block;
+
+    margin-top: 10px;
+
     color: #7cff6b;
 
-    letter-spacing: 4px;
+    font-size: 16px;
 
-    font-size: 12px;
-
-    margin-bottom: 20px;
-}
-
-.wiki-content h2 {
-    font-size: clamp(55px, 8vw, 100px);
-
-    line-height: 0.9;
-
-    margin-bottom: 30px;
-}
-
-.wiki-content h2 span {
-    color: #7cff6b;
-}
-
-.wiki-content p {
-    color: #ccc;
-
-    line-height: 1.7;
-
-    margin-bottom: 30px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    padding: 40px 7%;
-
-    background: #050806;
-
-    border-top:
-        1px solid rgba(255,255,255,0.06);
-
-    display: flex;
-
-    justify-content: space-between;
-
-    color: #777;
-}
-
-footer p {
-    color: white;
-
-    font-weight: 700;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 800px) {
-
-    .navbar {
-        padding: 0 20px;
-    }
-
-    .navbar nav {
-        gap: 15px;
-    }
-
-    .navbar a {
-        font-size: 12px;
-    }
-
-    .tools-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        letter-spacing: -3px;
-    }
-
-    .crafting-section {
-        padding: 110px 20px;
-    }
-
-    .crafting-result {
-        padding: 25px;
-    }
-
-    .recipe-area {
-        flex-direction: column;
-
-        gap: 30px;
-    }
-
-    .recipe-arrow {
-        transform: rotate(90deg);
-    }
-
-    .crafting-grid {
-        grid-template-columns:
-            repeat(3, 60px);
-
-        grid-template-rows:
-            repeat(3, 60px);
-    }
-
-    .recipe-title > span {
-        font-size: 45px;
-    }
-
-    .recipe-title h3 {
-        font-size: 24px;
-    }
-
-    footer {
-        flex-direction: column;
-
-        gap: 15px;
-    }
-
+    font-weight: 900;
 }
