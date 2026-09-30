@@ -11,181 +11,353 @@
 
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-        <div class="logo">
-            ⛏️ Minecraft Tools
-        </div>
+<header class="navbar">
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#tools">Tools</a>
-            <a href="#wiki">Wiki</a>
-        </nav>
-    </header>
+    <div class="logo">
+        ⛏️ Minecraft Tools
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#tools">Tools</a>
+        <a href="#wiki">Wiki</a>
+    </nav>
+
+</header>
 
 
-    <!-- HERO -->
-    <section id="home" class="hero">
+<!-- HERO -->
 
-        <div class="hero-content">
+<section id="home" class="hero">
 
-            <p class="small-title">
-                THE ULTIMATE MINECRAFT COMPANION
-            </p>
+    <div class="hero-content">
 
-            <h1>
-                MINECRAFT<br>
-                <span>TOOLS</span>
-            </h1>
+        <p class="small-title">
+            THE ULTIMATE MINECRAFT COMPANION
+        </p>
 
-            <p class="description">
-                Craft smarter. Build better. Explore everything.
-            </p>
+        <h1>
+            MINECRAFT<br>
+            <span>TOOLS</span>
+        </h1>
 
-            <a href="#tools" class="hero-button">
-                EXPLORE TOOLS
-                <span>↓</span>
-            </a>
+        <p class="description">
+            Craft smarter. Build better. Explore everything.
+        </p>
 
-        </div>
-
-        <div class="scroll-indicator">
-            SCROLL TO EXPLORE
+        <a href="#tools" class="hero-button">
+            EXPLORE TOOLS
             <span>↓</span>
-        </div>
+        </a>
 
-    </section>
+    </div>
 
+    <div class="scroll-indicator">
+        SCROLL TO EXPLORE
+        <span>↓</span>
+    </div>
 
-    <!-- TOOLS -->
-    <section id="tools" class="tools-section">
-
-        <div class="section-title">
-            <p>EVERYTHING YOU NEED</p>
-            <h2>YOUR MINECRAFT TOOLS</h2>
-        </div>
+</section>
 
 
-        <div class="tools-grid">
+<!-- TOOLS -->
 
-            <!-- CRAFTING -->
-            <div class="tool-card">
+<section id="tools" class="tools-section">
 
-                <div class="tool-icon">
-                    ⛏️
-                </div>
+    <div class="section-title">
 
-                <h3>
-                    Crafting Calculator
-                </h3>
+        <p>
+            EVERYTHING YOU NEED
+        </p>
 
-                <p>
-                    Find crafting recipes and calculate
-                    exactly how many materials you need.
-                </p>
+        <h2>
+            YOUR MINECRAFT TOOLS
+        </h2>
 
-                <button type="button">
-                    OPEN TOOL →
-                </button>
+    </div>
 
+
+    <div class="tools-grid">
+
+
+        <!-- CRAFTING -->
+
+        <div class="tool-card">
+
+            <div class="tool-icon">
+                ⛏️
             </div>
 
-
-            <!-- INVENTORY -->
-            <div class="tool-card">
-
-                <div class="tool-icon">
-                    🎒
-                </div>
-
-                <h3>
-                    Inventory Builder
-                </h3>
-
-                <p>
-                    Build your Minecraft inventory,
-                    organize your items and create your setup.
-                </p>
-
-                <button type="button">
-                    OPEN TOOL →
-                </button>
-
-            </div>
-
-
-            <!-- WIKI -->
-            <div class="tool-card">
-
-                <div class="tool-icon">
-                    📖
-                </div>
-
-                <h3>
-                    Minecraft Wiki
-                </h3>
-
-                <p>
-                    Explore items, blocks, mobs,
-                    crafting recipes and much more.
-                </p>
-
-                <button type="button">
-                    EXPLORE WIKI →
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- WIKI PREVIEW -->
-    <section id="wiki" class="wiki-section">
-
-        <div class="wiki-content">
+            <h3>
+                Crafting Calculator
+            </h3>
 
             <p>
-                DISCOVER THE WORLD
+                Find crafting recipes and calculate
+                exactly how many materials you need.
             </p>
 
-            <h2>
-                MINECRAFT<br>
-                <span>WIKI</span>
-            </h2>
-
-            <p>
-                Everything about Minecraft in one place.
-                Items, mobs, blocks, tools and recipes.
-            </p>
-
-            <button type="button">
-                OPEN WIKI →
+            <button
+                type="button"
+                id="craftingButton"
+            >
+                OPEN TOOL →
             </button>
 
         </div>
 
-    </section>
+
+        <!-- INVENTORY -->
+
+        <div class="tool-card">
+
+            <div class="tool-icon">
+                🎒
+            </div>
+
+            <h3>
+                Inventory Builder
+            </h3>
+
+            <p>
+                Build your Minecraft inventory,
+                organize your items and create your setup.
+            </p>
+
+            <button type="button">
+                COMING SOON →
+            </button>
+
+        </div>
 
 
-    <!-- FOOTER -->
-    <footer>
+        <!-- WIKI -->
 
-        <p>
-            ⛏️ Minecraft Tools
+        <div class="tool-card">
+
+            <div class="tool-icon">
+                📖
+            </div>
+
+            <h3>
+                Minecraft Wiki
+            </h3>
+
+            <p>
+                Explore items, blocks, mobs,
+                crafting recipes and much more.
+            </p>
+
+            <button type="button">
+                COMING SOON →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CRAFTING CALCULATOR -->
+
+<section
+    id="craftingCalculator"
+    class="crafting-section hidden"
+>
+
+    <div class="crafting-container">
+
+        <button
+            id="closeCrafting"
+            class="close-button"
+        >
+            ← BACK
+        </button>
+
+
+        <p class="small-title">
+            CRAFTING TOOL
         </p>
 
-        <span>
-            Not affiliated with Mojang or Microsoft.
-        </span>
+        <h2>
+            CRAFTING<br>
+            <span>CALCULATOR</span>
+        </h2>
 
-    </footer>
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="craftingSearch"
+                placeholder="Search item... e.g. Diamond Pickaxe"
+            >
+
+        </div>
 
 
-    <!-- JAVASCRIPT -->
-    <script src="script.js"></script>
+        <!-- RESULT -->
+
+        <div
+            id="craftingResult"
+            class="crafting-result"
+        >
+
+            <div class="recipe-title">
+                <span id="recipeEmoji">⛏️</span>
+
+                <div>
+                    <h3 id="recipeName">
+                        Diamond Pickaxe
+                    </h3>
+
+                    <p id="recipeDescription">
+                        A powerful mining tool.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- CRAFTING GRID -->
+
+            <div class="recipe-area">
+
+                <div>
+
+                    <p class="recipe-label">
+                        RECIPE
+                    </p>
+
+                    <div class="crafting-grid">
+
+                        <div>💎</div>
+                        <div>💎</div>
+                        <div>💎</div>
+
+                        <div>⬜</div>
+                        <div>🪵</div>
+                        <div>⬜</div>
+
+                        <div>⬜</div>
+                        <div>🪵</div>
+                        <div>⬜</div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="recipe-arrow">
+                    →
+                </div>
+
+
+                <div class="recipe-output">
+
+                    <p class="recipe-label">
+                        OUTPUT
+                    </p>
+
+                    <div class="output-item">
+                        ⛏️
+                    </div>
+
+                    <strong>
+                        1×
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- MATERIALS -->
+
+            <div class="materials">
+
+                <h3>
+                    MATERIALS
+                </h3>
+
+                <div class="material">
+
+                    <span>💎 Diamond</span>
+
+                    <strong>
+                        3
+                    </strong>
+
+                </div>
+
+                <div class="material">
+
+                    <span>🪵 Stick</span>
+
+                    <strong>
+                        2
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WIKI -->
+
+<section
+    id="wiki"
+    class="wiki-section"
+>
+
+    <div class="wiki-content">
+
+        <p>
+            DISCOVER THE WORLD
+        </p>
+
+        <h2>
+            MINECRAFT<br>
+            <span>WIKI</span>
+        </h2>
+
+        <p>
+            Everything about Minecraft in one place.
+            Items, mobs, blocks, tools and recipes.
+        </p>
+
+        <button type="button">
+            COMING SOON →
+        </button>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        ⛏️ Minecraft Tools
+    </p>
+
+    <span>
+        Not affiliated with Mojang or Microsoft.
+    </span>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
