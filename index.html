@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="sk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +27,9 @@
 </header>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section id="home" class="hero">
 
@@ -60,7 +63,9 @@
 </section>
 
 
-<!-- TOOLS -->
+<!-- =========================
+     TOOLS
+========================= -->
 
 <section id="tools" class="tools-section">
 
@@ -159,7 +164,9 @@
 </section>
 
 
-<!-- CRAFTING CALCULATOR -->
+<!-- =========================
+     CRAFTING CALCULATOR
+========================= -->
 
 <section
     id="craftingCalculator"
@@ -171,6 +178,7 @@
         <button
             id="closeCrafting"
             class="close-button"
+            type="button"
         >
             ← BACK
         </button>
@@ -193,8 +201,11 @@
             <input
                 type="text"
                 id="craftingSearch"
+                autocomplete="off"
                 placeholder="Search item... e.g. Diamond Pickaxe"
             >
+
+            <div id="searchResults"></div>
 
         </div>
 
@@ -206,25 +217,35 @@
             class="crafting-result"
         >
 
+            <!-- RECIPE HEADER -->
+
             <div class="recipe-title">
-                <span id="recipeEmoji">⛏️</span>
+
+                <span id="recipeEmoji">
+                    🔎
+                </span>
 
                 <div>
+
                     <h3 id="recipeName">
-                        Diamond Pickaxe
+                        Search for an item
                     </h3>
 
                     <p id="recipeDescription">
-                        A powerful mining tool.
+                        Type an item name above to find its recipe.
                     </p>
+
                 </div>
 
             </div>
 
 
-            <!-- CRAFTING GRID -->
+            <!-- RECIPE AREA -->
 
             <div class="recipe-area">
+
+
+                <!-- CRAFTING GRID -->
 
                 <div>
 
@@ -234,27 +255,31 @@
 
                     <div class="crafting-grid">
 
-                        <div>💎</div>
-                        <div>💎</div>
-                        <div>💎</div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
 
-                        <div>⬜</div>
-                        <div>🪵</div>
-                        <div>⬜</div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
 
-                        <div>⬜</div>
-                        <div>🪵</div>
-                        <div>⬜</div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
 
                     </div>
 
                 </div>
 
 
+                <!-- ARROW -->
+
                 <div class="recipe-arrow">
                     →
                 </div>
 
+
+                <!-- OUTPUT -->
 
                 <div class="recipe-output">
 
@@ -262,12 +287,19 @@
                         OUTPUT
                     </p>
 
-                    <div class="output-item">
-                        ⛏️
+                    <div
+                        class="output-item"
+                        id="recipeOutput"
+                    >
+
+                        <span id="outputIcon">
+                            ❔
+                        </span>
+
                     </div>
 
-                    <strong>
-                        1×
+                    <strong id="outputAmount">
+                        0×
                     </strong>
 
                 </div>
@@ -283,26 +315,6 @@
                     MATERIALS
                 </h3>
 
-                <div class="material">
-
-                    <span>💎 Diamond</span>
-
-                    <strong>
-                        3
-                    </strong>
-
-                </div>
-
-                <div class="material">
-
-                    <span>🪵 Stick</span>
-
-                    <strong>
-                        2
-                    </strong>
-
-                </div>
-
             </div>
 
         </div>
@@ -312,7 +324,9 @@
 </section>
 
 
-<!-- WIKI -->
+<!-- =========================
+     WIKI
+========================= -->
 
 <section
     id="wiki"
@@ -344,6 +358,10 @@
 </section>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
     <p>
@@ -360,4 +378,5 @@
 <script src="script.js"></script>
 
 </body>
+
 </html>
