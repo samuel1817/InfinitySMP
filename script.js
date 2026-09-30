@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     behavior: "smooth"
                 });
             }
-
         });
 
     });
@@ -65,6 +64,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ========================================
+    // SEARCH RESULTS CONTAINER
+    // ========================================
+
+    let searchResults =
+        document.getElementById("searchResults");
+
+    if (!searchResults && searchInput) {
+
+        searchResults =
+            document.createElement("div");
+
+        searchResults.id =
+            "searchResults";
+
+        searchResults.style.marginTop =
+            "10px";
+
+        searchResults.style.display =
+            "none";
+
+        searchResults.style.background =
+            "#101810";
+
+        searchResults.style.border =
+            "1px solid rgba(124,255,107,0.18)";
+
+        searchResults.style.borderRadius =
+            "10px";
+
+        searchResults.style.overflow =
+            "hidden";
+
+        searchInput.parentElement.appendChild(
+            searchResults
+        );
+    }
+
+
+    // ========================================
     // RECIPE DATABASE
     // ========================================
 
@@ -73,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "diamond pickaxe": {
             name: "Diamond Pickaxe",
             emoji: "⛏️",
-            description: "A powerful pickaxe made from diamonds.",
+            description: "A powerful mining tool.",
             output: 1,
 
             grid: [
@@ -98,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "iron pickaxe": {
             name: "Iron Pickaxe",
             emoji: "⛏️",
-            description: "A reliable pickaxe made from iron.",
+            description: "A reliable mining tool.",
             output: 1,
 
             grid: [
@@ -133,8 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "netherite",
                 "stick",
                 null,
-                "stick",
                 null,
+                "stick",
                 null
             ],
 
@@ -173,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "diamond sword": {
             name: "Diamond Sword",
             emoji: "⚔️",
-            description: "A powerful weapon made from diamonds.",
+            description: "A powerful weapon.",
             output: 1,
 
             grid: [
@@ -418,7 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ========================================
-    // MATERIAL EMOJIS
+    // ICONS
     // ========================================
 
     const materialIcons = {
@@ -434,10 +472,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     };
 
-
-    // ========================================
-    // GRID EMOJIS
-    // ========================================
 
     const gridIcons = {
 
@@ -492,6 +526,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ========================================
+    // CLEAR RECIPE
+    // ========================================
+
+    function clearRecipe() {
+
+        recipeName.textContent =
+            "Search for an item";
+
+        recipeEmoji.textContent =
+            "🔎";
+
+        recipeDescription.textContent =
+            "Type an item name above to find its recipe.";
+
+
+        // IMPORTANT:
+        // Completely empty crafting grid
+
+        if (craftingGrid) {
+
+            craftingGrid.innerHTML = "";
+
+            for (let i = 0; i < 9; i++) {
+
+                const slot =
+                    document.createElement("div");
+
+                slot.textContent = "";
+
+                craftingGrid.appendChild(slot);
+
+            }
+
+        }
+
+
+        if (materialsContainer) {
+
+            materialsContainer.innerHTML = `
+                <h3>MATERIALS</h3>
+            `;
+
+        }
+
+    }
+
+
+    // ========================================
     // SHOW RECIPE
     // ========================================
 
@@ -500,30 +582,23 @@ document.addEventListener("DOMContentLoaded", () => {
         const recipe = recipes[key];
 
         if (!recipe) {
+            clearRecipe();
             return;
         }
 
 
-        // NAME
-
         recipeName.textContent =
             recipe.name;
 
-
-        // EMOJI
-
         recipeEmoji.textContent =
             recipe.emoji;
-
-
-        // DESCRIPTION
 
         recipeDescription.textContent =
             recipe.description;
 
 
         // ========================================
-        // CRAFTING GRID
+        // GRID
         // ========================================
 
         if (craftingGrid) {
@@ -535,9 +610,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 const slot =
                     document.createElement("div");
 
+                // EMPTY SLOT = NOTHING
                 if (item) {
+
                     slot.textContent =
-                        gridIcons[item] || "❔";
+                        gridIcons[item] || "";
+
                 }
 
                 craftingGrid.appendChild(slot);
@@ -553,15 +631,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (materialsContainer) {
 
-            materialsContainer.innerHTML = "";
-
-            const title =
-                document.createElement("h3");
-
-            title.textContent =
-                "MATERIALS";
-
-            materialsContainer.appendChild(title);
+            materialsContainer.innerHTML = `
+                <h3>MATERIALS</h3>
+            `;
 
 
             Object.entries(recipe.materials)
@@ -572,6 +644,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     row.className =
                         "material";
+
 
                     const icon =
                         materialIcons[material] || "📦";
@@ -598,10 +671,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ========================================
-    // SEARCH
+    // SEARCH RESULTS
     // ========================================
 
-    function searchRecipes(value) {
+    function showSearchResults(value) {
 
         const search =
             value
@@ -611,7 +684,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!search) {
 
-            showRecipe("diamond pickaxe");
+            searchResults.innerHTML = "";
+
+            searchResults.style.display =
+                "none";
+
+            clearRecipe();
 
             return;
 
@@ -625,61 +703,135 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
 
-        if (matches.length > 0) {
+        searchResults.innerHTML = "";
 
-            showRecipe(matches[0]);
+        searchResults.style.display =
+            "block";
 
-        } else {
 
-            recipeName.textContent =
-                "Item not found";
+        if (matches.length === 0) {
 
-            recipeEmoji.textContent =
-                "❓";
+            searchResults.innerHTML = `
+                <div style="
+                    padding:18px;
+                    color:#777;
+                ">
+                    No items found
+                </div>
+            `;
 
-            recipeDescription.textContent =
-                "Try searching for another Minecraft item.";
+            clearRecipe();
 
-            if (craftingGrid) {
-                craftingGrid.innerHTML = "";
-
-                for (let i = 0; i < 9; i++) {
-
-                    const slot =
-                        document.createElement("div");
-
-                    slot.textContent = " ";
-
-                    craftingGrid.appendChild(slot);
-
-                }
-            }
-
-            if (materialsContainer) {
-
-                materialsContainer.innerHTML = `
-                    <h3>MATERIALS</h3>
-
-                    <p style="
-                        color:#888;
-                        padding-top:10px;
-                    ">
-                        No recipe found.
-                    </p>
-                `;
-
-            }
+            return;
 
         }
 
+
+        // ========================================
+        // CREATE RESULTS
+        // ========================================
+
+        matches.forEach(key => {
+
+            const recipe =
+                recipes[key];
+
+
+            const result =
+                document.createElement("button");
+
+            result.type =
+                "button";
+
+            result.style.width =
+                "100%";
+
+            result.style.padding =
+                "15px 18px";
+
+            result.style.border =
+                "none";
+
+            result.style.borderBottom =
+                "1px solid rgba(255,255,255,0.05)";
+
+            result.style.background =
+                "transparent";
+
+            result.style.color =
+                "white";
+
+            result.style.textAlign =
+                "left";
+
+            result.style.cursor =
+                "pointer";
+
+            result.style.fontSize =
+                "15px";
+
+
+            result.innerHTML = `
+                <span style="
+                    font-size:24px;
+                    margin-right:12px;
+                ">
+                    ${recipe.emoji}
+                </span>
+
+                <strong>
+                    ${recipe.name}
+                </strong>
+            `;
+
+
+            result.addEventListener("mouseenter", () => {
+
+                result.style.background =
+                    "rgba(124,255,107,0.08)";
+
+            });
+
+
+            result.addEventListener("mouseleave", () => {
+
+                result.style.background =
+                    "transparent";
+
+            });
+
+
+            result.addEventListener("click", () => {
+
+                searchInput.value =
+                    recipe.name;
+
+                showRecipe(key);
+
+                searchResults.innerHTML = "";
+
+                searchResults.style.display =
+                    "none";
+
+            });
+
+
+            searchResults.appendChild(result);
+
+        });
+
     }
 
+
+    // ========================================
+    // SEARCH INPUT
+    // ========================================
 
     if (searchInput) {
 
         searchInput.addEventListener("input", () => {
 
-            searchRecipes(
+            showSearchResults(
                 searchInput.value
             );
 
@@ -689,9 +841,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ========================================
-    // INITIAL RECIPE
+    // INITIAL STATE
     // ========================================
 
-    showRecipe("diamond pickaxe");
+    // DON'T SHOW DIAMOND PICKAXE
+    // UNTIL THE USER SEARCHES.
+
+    clearRecipe();
 
 });
