@@ -1,5 +1,7 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +10,7 @@
 
     <meta
         name="description"
-        content="Welcome to Infinity SMP — your Minecraft survival adventure."
+        content="Infinity SMP — minimalistický Minecraft survival server."
     >
 
     <link rel="stylesheet" href="style.css">
@@ -16,564 +18,297 @@
 
 <body>
 
-<!-- =========================
-     NAVBAR
-========================= -->
-
 <header class="navbar">
 
     <a href="#home" class="logo">
-        <span class="logo-symbol">∞</span>
+        <span class="logo-mark">∞</span>
         <span>INFINITY <small>SMP</small></span>
     </a>
 
-    <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
+    <nav>
         <a href="#server">Server</a>
         <a href="#rules">Rules</a>
-        <a href="#shop">Shop</a>
     </nav>
 
     <a
         href="https://falixnodes.net/startserver"
         target="_blank"
-        class="nav-button"
+        class="nav-start"
     >
         START SERVER
     </a>
 
-    <button class="menu-button" id="menuButton">
-        ☰
-    </button>
-
 </header>
 
 
-<!-- =========================
-     MOBILE MENU
-========================= -->
+<main>
 
-<div class="mobile-menu" id="mobileMenu">
+    <!-- HERO -->
 
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#server">Server</a>
-    <a href="#rules">Rules</a>
-    <a href="#shop">Shop</a>
+    <section id="home" class="hero">
 
-    <a
-        href="https://falixnodes.net/startserver"
-        target="_blank"
-        class="mobile-start"
-    >
-        🚀 START SERVER
-    </a>
+        <div class="hero-content">
 
-</div>
+            <div class="badge">
+                INFINITY SMP
+            </div>
 
+            <h1>
+                YOUR WORLD.
+                <span>YOUR STORY.</span>
+            </h1>
 
-<!-- =========================
-     HERO
-========================= -->
+            <p>
+                A simple Minecraft survival server.
+                Build, explore and create your own adventure.
+            </p>
 
-<section id="home" class="hero">
+            <div class="buttons">
 
-    <div class="hero-overlay"></div>
+                <button id="playButton" class="button primary">
+                    PLAY NOW
+                </button>
 
-    <div class="hero-content">
+                <a
+                    href="https://falixnodes.net/startserver"
+                    target="_blank"
+                    class="button secondary"
+                >
+                    START SERVER
+                </a>
 
-        <div class="hero-badge">
-            ✦ WELCOME TO INFINITY SMP ✦
+            </div>
+
+            <button id="ipButton" class="ip-box">
+
+                <span class="status"></span>
+
+                <span>
+                    infiniysmp.falix.gg
+                </span>
+
+                <span class="copy">
+                    COPY
+                </span>
+
+            </button>
+
+            <div id="toast">
+                IP copied!
+            </div>
+
         </div>
 
-        <h1>
-            YOUR WORLD.
-            <span>YOUR STORY.</span>
-        </h1>
+        <div class="scroll">
+            ↓
+        </div>
 
-        <p>
-            Build your empire, survive the wild and create
-            your own story on Infinity SMP.
-        </p>
+    </section>
 
-        <div class="hero-buttons">
 
-            <button
-                class="primary-button"
-                id="playButton"
-            >
-                🎮 PLAY NOW
-            </button>
+    <!-- SERVER -->
+
+    <section id="server" class="section">
+
+        <div class="section-title">
+
+            <span>SERVER</span>
+
+            <h2>
+                Everything you need.
+            </h2>
+
+        </div>
+
+        <div class="server-grid">
+
+            <div class="info-card">
+
+                <span class="icon">⚔️</span>
+
+                <h3>Survival</h3>
+
+                <p>
+                    Classic survival gameplay
+                    with your own world to explore.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <span class="icon">💰</span>
+
+                <h3>Economy</h3>
+
+                <p>
+                    Earn money, trade and build
+                    your own Minecraft economy.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <span class="icon">🎮</span>
+
+                <h3>Java</h3>
+
+                <p>
+                    Join the server using
+                    Minecraft Java Edition.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="server-details">
+
+            <div>
+                <span>IP</span>
+                <strong>infiniysmp.falix.gg</strong>
+            </div>
+
+            <div>
+                <span>VERSION</span>
+                <strong>26.3</strong>
+            </div>
+
+            <div>
+                <span>TYPE</span>
+                <strong>SURVIVAL SMP</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FREE HOSTING -->
+
+    <section class="activation">
+
+        <div class="activation-box">
+
+            <span class="label">
+                IMPORTANT
+            </span>
+
+            <h2>
+                The server is
+                <span>free.</span>
+            </h2>
+
+            <p>
+                Infinity SMP currently runs on free hosting,
+                so the server may not always be online.
+                Activate it before you play.
+            </p>
 
             <a
                 href="https://falixnodes.net/startserver"
                 target="_blank"
-                class="secondary-button"
+                class="button primary"
             >
-                🚀 START SERVER
+                🚀 ACTIVATE SERVER
             </a>
 
-        </div>
-
-        <div class="server-address">
-
-            <span class="status-dot"></span>
-
-            <span id="serverIp">
-                infiniysmp.falix.gg
-            </span>
-
-            <button id="copyIp">
-                📋
-            </button>
+            <small>
+                Wait until the server is online before joining.
+            </small>
 
         </div>
 
-        <div
-            class="copy-message"
-            id="copyMessage"
-        >
-            IP copied!
-        </div>
-
-    </div>
-
-    <div class="scroll-down">
-        <span>SCROLL</span>
-        <div>↓</div>
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+    <!-- RULES -->
 
-<section id="about" class="section about-section">
+    <section id="rules" class="section rules">
 
-    <div class="section-heading">
+        <div class="section-title">
 
-        <span>THE INFINITY EXPERIENCE</span>
-
-        <h2>
-            MORE THAN A
-            <strong>MINECRAFT SERVER</strong>
-        </h2>
-
-        <p>
-            Infinity SMP is a survival experience where you can
-            build, explore, trade and create your own adventure.
-        </p>
-
-    </div>
-
-
-    <div class="feature-grid">
-
-        <article class="feature-card">
-
-            <div class="feature-icon">
-                ⚔️
-            </div>
-
-            <h3>Survival</h3>
-
-            <p>
-                Start from nothing and build your own empire
-                in an evolving survival world.
-            </p>
-
-        </article>
-
-
-        <article class="feature-card">
-
-            <div class="feature-icon">
-                💰
-            </div>
-
-            <h3>Economy</h3>
-
-            <p>
-                Earn money, trade with players and create
-                your own successful Minecraft business.
-            </p>
-
-        </article>
-
-
-        <article class="feature-card">
-
-            <div class="feature-icon">
-                🏆
-            </div>
-
-            <h3>Events</h3>
-
-            <p>
-                Participate in events, challenges and
-                community activities.
-            </p>
-
-        </article>
-
-
-        <article class="feature-card">
-
-            <div class="feature-icon">
-                🌎
-            </div>
-
-            <h3>Community</h3>
-
-            <p>
-                Meet new players and become part of the
-                Infinity SMP community.
-            </p>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     SERVER
-========================= -->
-
-<section id="server" class="section server-section">
-
-    <div class="server-container">
-
-        <div class="server-text">
-
-            <span class="section-label">
-                SERVER INFORMATION
-            </span>
+            <span>RULES</span>
 
             <h2>
-                READY TO
-                <strong>JOIN?</strong>
+                Keep it simple.
             </h2>
 
-            <p>
-                Everything you need to start your adventure
-                on Infinity SMP.
-            </p>
-
-            <button
-                class="primary-button"
-                id="copyIpLarge"
-            >
-                📋 COPY SERVER IP
-            </button>
-
         </div>
 
+        <div class="rules-list">
 
-        <div class="server-card">
+            <div class="rule">
 
-            <div class="server-card-header">
+                <strong>01</strong>
 
-                <span class="online-indicator"></span>
-
-                <span>
-                    INFINITY SMP
-                </span>
-
-            </div>
-
-
-            <div class="server-info-row">
-
-                <span>SERVER IP</span>
-
-                <strong>
-                    infiniysmp.falix.gg
-                </strong>
+                <div>
+                    <h3>Respect others</h3>
+                    <p>
+                        Treat every player with respect.
+                    </p>
+                </div>
 
             </div>
 
 
-            <div class="server-info-row">
+            <div class="rule">
 
-                <span>TYPE</span>
+                <strong>02</strong>
 
-                <strong>
-                    SURVIVAL SMP
-                </strong>
-
-            </div>
-
-
-            <div class="server-info-row">
-
-                <span>VERSION</span>
-
-                <strong>
-                    26.3
-                </strong>
+                <div>
+                    <h3>No cheating</h3>
+                    <p>
+                        Hacks, cheats and unfair exploits are not allowed.
+                    </p>
+                </div>
 
             </div>
 
 
-            <div class="server-info-row">
+            <div class="rule">
 
-                <span>PLATFORM</span>
+                <strong>03</strong>
 
-                <strong>
-                    JAVA
-                </strong>
-
-            </div>
-
-
-            <div class="server-status">
-
-                <span class="status-dot"></span>
-
-                SERVER READY
+                <div>
+                    <h3>No griefing</h3>
+                    <p>
+                        Do not destroy another player's builds.
+                    </p>
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+</main>
 
-
-<!-- =========================
-     RULES
-========================= -->
-
-<section id="rules" class="section rules-section">
-
-    <div class="section-heading">
-
-        <span>PLAY FAIR</span>
-
-        <h2>
-            SERVER
-            <strong>RULES</strong>
-        </h2>
-
-        <p>
-            Keep Infinity SMP fun and enjoyable for everyone.
-        </p>
-
-    </div>
-
-
-    <div class="rules-grid">
-
-        <div class="rule">
-
-            <span>01</span>
-
-            <div>
-                <h3>Respect Players</h3>
-
-                <p>
-                    Treat other members of the community
-                    with respect.
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="rule">
-
-            <span>02</span>
-
-            <div>
-                <h3>No Cheating</h3>
-
-                <p>
-                    Hacks, unfair clients and exploits are not allowed.
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="rule">
-
-            <span>03</span>
-
-            <div>
-                <h3>No Griefing</h3>
-
-                <p>
-                    Do not destroy or intentionally damage
-                    another player's builds.
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="rule">
-
-            <span>04</span>
-
-            <div>
-                <h3>Have Fun</h3>
-
-                <p>
-                    Build, explore and enjoy the server.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     SHOP
-========================= -->
-
-<section id="shop" class="section shop-section">
-
-    <div class="section-heading">
-
-        <span>SUPPORT THE SERVER</span>
-
-        <h2>
-            INFINITY
-            <strong>SHOP</strong>
-        </h2>
-
-        <p>
-            Support the development of Infinity SMP.
-        </p>
-
-    </div>
-
-
-    <div class="shop-card">
-
-        <div class="shop-icon">
-            🛒
-        </div>
-
-        <h3>
-            SHOP COMING SOON
-        </h3>
-
-        <p>
-            Our store is currently being prepared.
-            Check back soon for ranks, cosmetics and more.
-        </p>
-
-        <button class="secondary-button disabled">
-            COMING SOON
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     DISCORD
-========================= -->
-
-<section class="discord-section">
-
-    <div>
-
-        <span>
-            JOIN THE COMMUNITY
-        </span>
-
-        <h2>
-            CONNECT WITH
-            <strong>INFINITY SMP</strong>
-        </h2>
-
-        <p>
-            Join our Discord to get news, announcements,
-            events and talk with other players.
-        </p>
-
-    </div>
-
-    <a
-        href="#"
-        class="discord-button"
-        id="discordButton"
-    >
-        💬 JOIN DISCORD
-    </a>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
 
     <div class="footer-logo">
-
         <span>∞</span>
-
-        <div>
-            <strong>INFINITY SMP</strong>
-
-            <small>
-                YOUR WORLD. YOUR STORY.
-            </small>
-        </div>
-
+        <strong>INFINITY SMP</strong>
     </div>
 
-
-    <div class="footer-links">
-
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#server">Server</a>
-        <a href="#rules">Rules</a>
-        <a href="#shop">Shop</a>
-
-    </div>
-
-
-    <p class="copyright">
-        © 2026 Infinity SMP. All rights reserved.
+    <p>
+        Your world. Your story.
     </p>
 
-    <p class="disclaimer">
-        Minecraft is a trademark of Mojang Studios.
-        Infinity SMP is not affiliated with Mojang or Microsoft.
-    </p>
+    <small>
+        © 2026 Infinity SMP · Not affiliated with Mojang or Microsoft.
+    </small>
 
 </footer>
-
-
-<!-- =========================
-     TOAST
-========================= -->
-
-<div
-    class="toast"
-    id="toast"
->
-    IP copied!
-</div>
 
 
 <script src="script.js"></script>
 
 </body>
-</html>
+<
+```
